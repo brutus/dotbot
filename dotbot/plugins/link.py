@@ -65,7 +65,8 @@ class Link(Plugin):
                     self._log.warning("Globbing couldn't find anything matching " + str(path))
                     success = ignore_missing
                     continue
-                if len(glob_results) == 1 and destination[-1] == "/":
+                elif len(glob_results) == 1 and (glob_results[0] == path):
+                    print(path)
                     self._log.error("Ambiguous action requested.")
                     self._log.error(
                         "No wildcard in glob, directory use undefined: "
